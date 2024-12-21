@@ -4,7 +4,7 @@ description: "A simple blog built with Jekyll"
 
 # URL and baseurl for deployment
 url: "https://hike-projects.github.io"  # Root URL of your GitHub Pages site
-baseurl: "/Blogpage"                    # The subfolder where your site is hosted
+baseurl: "/Blogpage"  # The subfolder where your site is hosted                    # The subfolder where your site is hosted
 
 # _config.yml
 permalink: /Blogpage/:year/:month/:day/:title/  # Correct URL structure for posts

@@ -21,11 +21,9 @@
       <h1>{{ page.title }}</h1>
       <p class="date">{{ page.date | date: "%B %d, %Y" }}</p>
       
-      <!-- Display Thumbnail if Available -->
       {% if page.thumbnail %}
         <img src="{{ page.thumbnail }}" alt="{{ page.title }}" class="thumbnail">
       {% elsif page.content contains '<img' %}
-        <!-- If the post content has an image, extract the first image and show it as a thumbnail -->
         <img src="{{ page.content | split: '<img' | last | split: 'src="' | last | split: '"' | first }}" class="thumbnail" alt="{{ page.title }}">
       {% endif %}
 

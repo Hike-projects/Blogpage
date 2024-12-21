@@ -1,18 +1,20 @@
 ---
 layout: default
-title: Home
+title: "Home"
 ---
-# Welcome to My Blog
 
-This is the homepage of my Jekyll site.
+## Latest Posts
 
-Here are my blog posts:
+{% for post in site.posts %}
+  <article>
+    <header>
+      <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+      <p>{{ post.date | date: "%B %d, %Y" }}</p>
+    </header>
 
-<ul>
-    {% for post in site.posts %}
-    <li>
-        <a href="{{ post.url }}">{{ post.title }}</a>
-        <small>{{ post.date | date: "%B %d, %Y" }}</small>
-    </li>
-    {% endfor %}
-</ul>
+    <div class="excerpt">
+      {{ post.excerpt }}  <!-- This will display the post excerpt (content before <!--more--> tag) -->
+      <a href="{{ post.url | relative_url }}">Read More</a>  <!-- "Read More" link to full post -->
+    </div>
+  </article>
+{% endfor %}

@@ -6,6 +6,9 @@ description: "A simple blog built with Jekyll"
 url: "https://hike-projects.github.io"  # Root URL of your GitHub Pages site
 baseurl: "/Blogpage"                    # The subfolder where your site is hosted
 
+# Permalink settings for posts
+permalink: /:year/:month/:day/:title/  # Standard Jekyll permalink format
+
 # Optional: To serve CSS assets and other assets correctly
 assets:
   css_dir: "assets/css"  # You can specify the directory for CSS if desired (optional)
@@ -23,3 +26,6 @@ include:
 social_links:
   twitter: "https://twitter.com/username"
   instagram: "https://instagram.com/username"
+
+# Additional configurations (if needed)
+# You can add more settings like navigation links, Google Analytics, etc.

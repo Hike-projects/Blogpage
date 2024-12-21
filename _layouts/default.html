@@ -3,46 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ site.title }}</title>
-  <meta name="description" content="{{ site.description }}">
-
-  <!-- Link to your custom CSS -->
-  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
+  <title>{{ page.title }}</title>
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 </head>
 <body>
-    <header class="header">
-        <div class="container">
-            <h1><a href="{{ "/" | relative_url }}">{{ site.title }}</a></h1>
-            <nav class="nav">
-                <ul>
-                    <li><a href="{{ "/" | relative_url }}">Home</a></li>
-                    <li><a href="{{ site.baseurl }}/about">About</a></li>
-                    <li><a href="{{ site.baseurl }}/contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+  <header>
+    <h1>{{ site.title }}</h1>
+    <p>{{ site.description }}</p>
+    <nav>
+      <a href="{{ site.baseurl }}/">Home</a>
+    </nav>
+  </header>
 
-    <main class="main">
-        <div class="container">
-            <h2>{{ page.title }}</h2>
-            <div class="post-list">
-                {% for post in site.posts %}
-                <div class="post">
-                    <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
-                    <p class="post-date">{{ post.date | date: "%B %d, %Y" }}</p>
-                    <p>{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
-                    <a href="{{ post.url }}" class="read-more">Read more</a>
-                </div>
-                {% endfor %}
-            </div>
-        </div>
-    </main>
+  <main>
+    {% if page.layout == "post" %}
+      <article>
+        <header>
+          <h1>{{ page.title }}</h1>
+          <p class="date">{{ page.date | date: "%B %d, %Y" }}</p>
+        </header>
 
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; {{ site.time | date: "%Y" }} {{ site.title }}. All rights reserved.</p>
+        <div class="content">
+          {{ content }} <!-- Show the full content for posts -->
         </div>
-    </footer>
+
+        <footer>
+          <p><a href="{{ site.baseurl }}/">Back to Home</a></p>
+        </footer>
+      </article>
+    {% else %}
+      {{ content }}
+    {% endif %}
+  </main>
+
+  <footer>
+    <p>&copy; {{ site.time | date: "%Y" }} {{ site.title }}</p>
+  </footer>
 </body>
 </html>

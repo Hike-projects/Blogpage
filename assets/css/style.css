@@ -106,6 +106,7 @@ body {
 
 .button:hover {
   background-color: #4b5563;
+  text-decoration: none;
 }
 
 /* Footer */

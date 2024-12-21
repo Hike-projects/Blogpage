@@ -10,6 +10,8 @@ baseurl: "/Blogpage"                    # The subfolder where your site is hoste
 permalink: /Blogpage/:year/:month/:day/:title/  # Ensure the permalink format includes the baseurl
 # Standard Jekyll permalink format
 
+excerpt_separator: "\n\n<!--more-->\n\n"  # This separates the preview content from the full content
+
 # Optional: To serve CSS assets and other assets correctly
 assets:
   css_dir: "assets/css"  # You can specify the directory for CSS if desired (optional)
@@ -22,11 +24,6 @@ plugins:
 # Include files in the build
 include:
   - "_posts"  # Include all posts in the build
-
-# Social links (optional)
-social_links:
-  twitter: "https://twitter.com/username"
-  instagram: "https://instagram.com/username"
 
 # Additional configurations (if needed)
 # You can add more settings like navigation links, Google Analytics, etc.

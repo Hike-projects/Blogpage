@@ -5,23 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ site.title }}</title>
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
   <!-- Navbar -->
-  <div class="navbar">
+  <nav class="navbar">
     <a href="{{ site.baseurl }}/">Home</a>
     <a href="{{ site.baseurl }}/about">About</a>
     <a href="{{ site.baseurl }}/contact">Contact</a>
-  </div>
+  </nav>
 
   <!-- Main Content -->
-  <div class="container">
-    <h1>{{ site.title }}</h1>
+  <main class="container">
+    <header>
+      <h1>{{ site.title }}</h1>
+    </header>
 
-    <div class="homepage-posts">
+    <section class="homepage-posts">
       {% for post in site.posts %}
-        <div class="article-preview">
+        <article class="article-preview">
           {% if post.thumbnail %}
             <img src="{{ post.thumbnail }}" alt="{{ post.title }}" class="thumbnail">
           {% elsif post.content contains '<img' %}
@@ -31,10 +34,10 @@
           <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
           <p>{{ post.excerpt | truncatewords: 50 }}</p>
           <a href="{{ post.url | relative_url }}">Read more</a>
-        </div>
+        </article>
       {% endfor %}
-    </div>
-  </div>
+    </section>
+  </main>
 
   <!-- Footer -->
   <footer>

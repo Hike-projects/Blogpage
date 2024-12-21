@@ -21,32 +21,33 @@
     </div>
   </nav>
 
-  <!-- Main Content -->
-  <main class="container">
-    <header class="hero">
-      <h1>Welcome to {{ site.title }}</h1>
-      <p>Your go-to resource for amazing content.</p>
-    </header>
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Welcome to {{ site.title }}</h1>
+    <p>Your go-to platform for insightful blogs and updates.</p>
+  </section>
 
-    <section class="cards">
-      {% for post in site.posts %}
-        <div class="card">
-          <div class="card-image">
-            {% if post.thumbnail %}
-              <img src="{{ post.thumbnail }}" alt="{{ post.title }}">
-            {% elsif post.content contains '<img' %}
-              <img src="{{ post.content | split: '<img' | last | split: 'src="' | last | split: '"' | first }}" alt="{{ post.title }}">
-            {% endif %}
-          </div>
-          <div class="card-content">
-            <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
-            <p>{{ post.excerpt | truncatewords: 30 }}</p>
-            <a class="button" href="{{ post.url | relative_url }}">Read more</a>
-          </div>
+  <!-- Cards Section -->
+  <section class="cards">
+    {% for post in site.posts %}
+      <div class="card">
+        <div class="card-image">
+          {% if post.thumbnail %}
+            <img src="{{ post.thumbnail }}" alt="{{ post.title }}">
+          {% elsif post.content contains '<img' %}
+            <img src="{{ post.content | split: '<img' | last | split: 'src="' | last | split: '"' | first }}" alt="{{ post.title }}">
+          {% endif %}
         </div>
-      {% endfor %}
-    </section>
-  </main>
+        <div class="card-content">
+          <h2>
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          </h2>
+          <p>{{ post.excerpt | truncatewords: 30 }}</p>
+          <a href="{{ post.url | relative_url }}" class="button">Read More</a>
+        </div>
+      </div>
+    {% endfor %}
+  </section>
 
   <!-- Footer -->
   <footer>

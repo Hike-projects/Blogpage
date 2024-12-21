@@ -96,6 +96,16 @@ a:hover {
   background: #2980b9;
 }
 
+/* Excerpt: Show first 200 characters */
+.article-preview p {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #7f8c8d;
+}
+
 /* Post Page */
 .post-page {
   max-width: 800px;

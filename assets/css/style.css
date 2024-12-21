@@ -1,4 +1,4 @@
-/* Reset basic styles for consistent design */
+/* Reset basic styles */
 * {
   margin: 0;
   padding: 0;
@@ -7,14 +7,14 @@
 
 body {
   font-family: 'Arial', sans-serif;
-  background-color: #f4f4f9;
+  background-color: #fafafa;
   color: #333;
   line-height: 1.6;
-  padding-top: 70px;  /* To prevent content being hidden behind fixed navbar */
+  padding-top: 60px;  /* Adjust for fixed navbar */
 }
 
 h1, h2, h3 {
-  color: #2c3e50;
+  color: #333;
 }
 
 a {
@@ -26,15 +26,10 @@ a:hover {
   text-decoration: underline;
 }
 
-.container {
-  width: 80%;
-  margin: 0 auto;
-  padding: 20px;
-}
-
 /* Navbar */
 .navbar {
-  background-color: #3498db;
+  background-color: #333;
+  color: white;
   padding: 20px;
   text-align: center;
   position: fixed;
@@ -46,7 +41,7 @@ a:hover {
 
 .navbar a {
   color: white;
-  margin: 0 20px;
+  margin: 0 15px;
   font-size: 18px;
   text-transform: uppercase;
 }

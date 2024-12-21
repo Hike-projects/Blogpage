@@ -13,7 +13,7 @@ title: "Home"
     </header>
 
     <div class="excerpt">
-      {{ post.excerpt }} <!-- This displays the excerpt of the post -->
+      {{ post.excerpt }} <!-- Excerpt of the post -->
       <a href="{{ post.url | relative_url }}">Read More</a> <!-- This links to the full post -->
     </div>
   </article>

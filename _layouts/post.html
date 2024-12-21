@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ page.title }} | {{ site.title }}</title>
+  <title>{{ site.title }}</title>
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
@@ -12,32 +12,42 @@
   <!-- Navbar -->
   <nav class="navbar">
     <div class="logo">
-      <a href="{{ site.baseurl }}/">{{ site.title }}</a>
+      <a href="{{ site.baseurl | relative_url }}">{{ site.title }}</a>
     </div>
     <div class="menu">
-      <a href="{{ site.baseurl }}/">Home</a>
+      <a href="{{ site.baseurl | relative_url }}">Home</a>
       <a href="{{ site.baseurl }}/about">About</a>
       <a href="{{ site.baseurl }}/contact">Contact</a>
     </div>
   </nav>
 
-  <!-- Post Content -->
-  <div class="container">
-    <div class="post-page">
-      <h1>{{ page.title }}</h1>
-      <p class="date">{{ page.date | date: "%B %d, %Y" }}</p>
-      
-      {% if page.thumbnail %}
-        <img src="{{ page.thumbnail | relative_url }}" alt="{{ page.title }}" class="thumbnail">
-      {% elsif page.content contains '<img' %}
-        <img src="{{ page.content | split: '<img' | last | split: 'src="' | last | split: '"' | first | relative_url }}" class="thumbnail" alt="{{ page.title }}">
-      {% endif %}
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Welcome to {{ site.title }}</h1>
+    <p>Your go-to platform for insightful blogs and updates.</p>
+  </section>
 
-      <div class="content">
-        {{ content }}
+  <!-- Cards Section -->
+  <section class="cards">
+    {% for post in site.posts %}
+      <div class="card">
+        {% if post.thumbnail %}
+          <div class="card-image">
+            <img src="{{ post.thumbnail | relative_url }}" alt="{{ post.title }}">
+          </div>
+        {% elsif post.content contains '<img' %}
+          <div class="card-image">
+            <img src="{{ post.content | split: '<img' | last | split: 'src="' | last | split: '"' | first }}" alt="{{ post.title }}">
+          </div>
+        {% endif %}
+        <div class="card-content">
+          <h2>{{ post.title }}</h2>
+          <p>{{ post.excerpt | truncatewords: 30 }}</p>
+          <a href="{{ post.url | relative_url }}" class="button">Read More</a>
+        </div>
       </div>
-    </div>
-  </div>
+    {% endfor %}
+  </section>
 
   <!-- Footer -->
   <footer>

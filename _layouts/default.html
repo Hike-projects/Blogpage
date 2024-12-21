@@ -33,9 +33,9 @@
       <div class="card">
         <div class="card-image">
           {% if post.thumbnail %}
-            <img src="{{ post.thumbnail }}" alt="{{ post.title }}">
+            <img src="{{ post.thumbnail | relative_url }}" alt="{{ post.title }}">
           {% elsif post.content contains '<img' %}
-            <img src="{{ post.content | split: '<img' | last | split: 'src="' | last | split: '"' | first }}" alt="{{ post.title }}">
+            <img src="{{ post.content | split: '<img' | last | split: 'src="' | last | split: '"' | first | relative_url }}" alt="{{ post.title }}">
           {% endif %}
         </div>
         <div class="card-content">

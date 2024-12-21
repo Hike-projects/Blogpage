@@ -1,19 +1,35 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }}</title>
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
 
-<article>
-  <header>
-    <h1>{{ page.title }}</h1>
-    <p class="date">{{ page.date | date: "%B %d, %Y" }}</p>
-  </header>
-
-  <div class="content">
-    {{ content }} <!-- Full content of the post -->
+  <!-- Navbar -->
+  <div class="navbar">
+    <a href="{{ site.baseurl }}/">Home</a>
+    <a href="{{ site.baseurl }}/about">About</a>
+    <a href="{{ site.baseurl }}/contact">Contact</a>
   </div>
 
+  <!-- Post Content -->
+  <div class="container">
+    <div class="post-page">
+      <h1>{{ page.title }}</h1>
+      <p class="date">{{ page.date | date: "%B %d, %Y" }}</p>
+      <div class="content">
+        {{ content }}
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
   <footer>
-    <p>Published on {{ page.date | date: "%B %d, %Y" }}</p>
-    <p><a href="{{ site.baseurl }}/">Back to Home</a></p>
+    <p>&copy; 2024 {{ site.title }}. All Rights Reserved.</p>
   </footer>
-</article>
+
+</body>
+</html>

@@ -22,8 +22,15 @@
     <div class="homepage-posts">
       {% for post in site.posts %}
         <div class="article-preview">
+          {% if post.thumbnail %}
+            <img src="{{ post.thumbnail }}" alt="{{ post.title }}" class="thumbnail">
+          {% elsif post.content contains '<img' %}
+            <!-- If the post has an image, extract the first image (to be used as thumbnail) -->
+            <img src="{{ post.content | split: '<img' | last | split: 'src="' | last | split: '"' | first }}" class="thumbnail" alt="{{ post.title }}">
+          {% endif %}
+          
           <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
-          <p>{{ post.excerpt | truncatewords: 50 }}</p> <!-- Short preview of the post -->
+          <p>{{ post.excerpt | truncatewords: 50 }}</p>
           <a href="{{ post.url | relative_url }}">Read more</a>
         </div>
       {% endfor %}

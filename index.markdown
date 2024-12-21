@@ -9,13 +9,14 @@ title: Home
   <article>
     <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
     <p class="date">{{ post.date | date: "%B %d, %Y" }}</p>
-    <div class="excerpt">
-      {% if post.excerpt %}
-        <p>{{ post.excerpt }}</p>
-      {% else %}
-        <p>{{ post.content | strip_html | truncatewords: 40 }}</p>  <!-- 40 words preview -->
-      {% endif %}
-    </div>
+    
+    <!-- Displaying the post excerpt or truncated content -->
+    {% if post.excerpt %}
+      <p>{{ post.excerpt }}</p>
+    {% else %}
+      <p>{{ post.content | strip_html | truncatewords: 40 }}</p> <!-- Show first 40 words -->
+    {% endif %}
+    
     <a href="{{ post.url | relative_url }}">Read more</a>
   </article>
 {% endfor %}

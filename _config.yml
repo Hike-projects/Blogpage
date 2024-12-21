@@ -6,8 +6,9 @@ description: "A simple blog built with Jekyll"
 url: "https://hike-projects.github.io"  # Root URL of your GitHub Pages site
 baseurl: "/Blogpage"                    # The subfolder where your site is hosted
 
-# Permalink settings for posts
-permalink: /Blogpage/:year/:month/:day/:title/  # Ensure the permalink format includes the baseurl
+# _config.yml
+permalink: /Blogpage/:year/:month/:day/:title/  # Correct URL structure for posts
+
 # Standard Jekyll permalink format
 
 excerpt_separator: "\n\n<!--more-->\n\n"  # This separates the preview content from the full content

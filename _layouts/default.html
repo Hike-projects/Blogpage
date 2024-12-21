@@ -25,7 +25,6 @@
           {% if post.thumbnail %}
             <img src="{{ post.thumbnail }}" alt="{{ post.title }}" class="thumbnail">
           {% elsif post.content contains '<img' %}
-            <!-- If the post has an image, extract the first image (to be used as thumbnail) -->
             <img src="{{ post.content | split: '<img' | last | split: 'src="' | last | split: '"' | first }}" class="thumbnail" alt="{{ post.title }}">
           {% endif %}
           

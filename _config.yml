@@ -7,7 +7,8 @@ url: "https://hike-projects.github.io"  # Root URL of your GitHub Pages site
 baseurl: "/Blogpage"                    # The subfolder where your site is hosted
 
 # Permalink settings for posts
-permalink: /:year/:month/:day/:title/  # Standard Jekyll permalink format
+permalink: /Blogpage/:year/:month/:day/:title/  # Ensure the permalink format includes the baseurl
+# Standard Jekyll permalink format
 
 # Optional: To serve CSS assets and other assets correctly
 assets:

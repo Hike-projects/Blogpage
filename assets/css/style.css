@@ -135,3 +135,13 @@ footer {
     font-size: 16px;
   }
 }
+/* Excerpt Styles */
+.excerpt {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.excerpt p {
+  margin-bottom: 10px;
+}

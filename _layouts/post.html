@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ site.title }}</title>
+  <title>{{ page.title }} | {{ site.title }}</title>
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
@@ -21,31 +21,23 @@
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <h1>Welcome to {{ site.title }}</h1>
-    <p>Your go-to platform for insightful blogs and updates.</p>
-  </section>
+  <!-- Post Content -->
+  <div class="container">
+    <div class="post-page">
+      <h1>{{ page.title }}</h1>
+      <p class="date">{{ page.date | date: "%B %d, %Y" }}</p>
+      
+      {% if page.thumbnail %}
+        <img src="{{ page.thumbnail | relative_url }}" alt="{{ page.title }}" class="thumbnail">
+      {% elsif page.content contains '<img' %}
+        <img src="{{ page.content | split: '<img' | last | split: 'src="' | last | split: '"' | first | relative_url }}" class="thumbnail" alt="{{ page.title }}">
+      {% endif %}
 
-  <!-- Cards Section -->
-  <section class="cards">
-    {% for post in site.posts %}
-      <div class="card">
-        <div class="card-image">
-          {% if post.thumbnail %}
-            <img src="{{ post.thumbnail }}" alt="{{ post.title }}">
-          {% elsif post.content contains '<img' %}
-            <img src="{{ post.content | split: '<img' | last | split: 'src="' | last | split: '"' | first }}" alt="{{ post.title }}">
-          {% endif %}
-        </div>
-        <div class="card-content">
-          <h2>{{ post.title }}</h2>
-          <p>{{ post.excerpt | truncatewords: 30 }}</p>
-          <a href="{{ post.url | relative_url }}" class="button">Read More</a>
-        </div>
+      <div class="content">
+        {{ content }}
       </div>
-    {% endfor %}
-  </section>
+    </div>
+  </div>
 
   <!-- Footer -->
   <footer>

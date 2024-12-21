@@ -23,7 +23,7 @@
       {% for post in site.posts %}
         <div class="article-preview">
           <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
-          <p>{{ post.excerpt | truncatewords: 30 }}</p>
+          <p>{{ post.excerpt | truncatewords: 50 }}</p> <!-- Short preview of the post -->
           <a href="{{ post.url | relative_url }}">Read more</a>
         </div>
       {% endfor %}

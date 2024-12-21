@@ -13,8 +13,8 @@ title: "Home"
     </header>
 
     <div class="excerpt">
-      {{ post.excerpt }}  <!-- This will display the post excerpt (content before <!--more--> tag) -->
-      <a href="{{ post.url | relative_url }}">Read More</a>  <!-- "Read More" link to full post -->
+      {{ post.excerpt }} <!-- This displays the excerpt of the post -->
+      <a href="{{ post.url | relative_url }}">Read More</a> <!-- This links to the full post -->
     </div>
   </article>
 {% endfor %}
